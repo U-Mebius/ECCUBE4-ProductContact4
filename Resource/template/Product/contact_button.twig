@@ -1,0 +1,17 @@
+<script>
+    $(function () {
+        $('.ec-productRole__btn').each(function () {
+            if ($(this).find('.add-cart').length) {
+                $(this).after('<div class="ec-productRole__btn">\n' +
+                    '          <button type="button" class="ec-blockBtn--cancel contact">\n' +
+                    '                                    この商品を問い合わせる\n' +
+                    '          </button>\n' +
+                    '         </div>')
+            }
+        })
+        
+        $('body').on('click','.ec-productRole__btn .contact', function () {
+            location.href = "{{ url('contact') }}?product={{ Product.id }}"
+        })
+    })
+</script>
