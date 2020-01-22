@@ -65,20 +65,6 @@ class Event implements EventSubscriberInterface
         }
     }
 
-    public function onMailContact(EventArgs $event) {
-
-        $data = $event->getArgument('formData');
-
-        /* @var $message \Swift_Message */
-        $message = $event->getArgument('message');
-        foreach ($message->getChildren() as $part)
-        {
-            if ($part->getContentType() === 'text/html') {
-            }
-        }
-        dump($data, $message->getChildren());exit();
-
-    }
 
     public function onFrontContactIndexComplete(EventArgs $event) {
 
