@@ -37,7 +37,7 @@ class ContactTypeExtension extends AbstractTypeExtension
 
         $builder->addEventListener(FormEvents::POST_SET_DATA, function (FormEvent $event) {
             $data = $event->getData();
-            if ($data['Product']) {
+            if (isset($data['Product']) && !is_null($data['Product'])) {
                 $form = $event->getForm();
                 $form['contents']->setData('「'.$data['Product']->getName().'」についての問い合わせです。');
             }
