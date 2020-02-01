@@ -7,6 +7,8 @@ use Eccube\Event\EccubeEvents;
 use Eccube\Event\EventArgs;
 use Eccube\Event\TemplateEvent;
 use Eccube\Repository\ProductRepository;
+use Eccube\Util\StringUtil;
+use Plugin\ProductContact4\Repository\ConfigRepository;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class Event implements EventSubscriberInterface
@@ -22,10 +24,20 @@ class Event implements EventSubscriberInterface
      */
     protected $productRepository;
 
+
+    /**
+     * @var ConfigRepository
+     */
+    protected $configRepository;
+
+
     public function __construct(
+        ConfigRepository $configRepository,
         EntityManager $entityManager = null,
-        ProductRepository $productRepository = null)
+        ProductRepository $productRepository = null
+    )
     {
+        $this->configRepository = $configRepository;
         $this->entityManager = $entityManager;
         $this->productRepository = $productRepository;
     }
@@ -45,6 +57,14 @@ class Event implements EventSubscriberInterface
 
     public function onRenderProductDetail(TemplateEvent $event)
     {
+        $label = 'この商品を問い合わせる';
+        $Config = $this->configRepository->get();
+
+        if ($Config && StringUtil::isNotBlank($Config->getName())) {
+            $label = $Config->getName();
+        }
+
+        $event->setParameter('contact_button_label', $label);
         $event->addSnippet('@ProductContact4/Product/contact_button.twig');
     }
 
