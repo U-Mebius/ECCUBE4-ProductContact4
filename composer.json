@@ -1,6 +1,6 @@
 {
   "name": "ec-cube/ProductContact4",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "商品問い合わせ for EC-CUBE4",
   "type": "eccube-plugin",
   "require": {
