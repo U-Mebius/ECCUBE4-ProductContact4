@@ -1,12 +1,8 @@
 <script>
     $(function () {
-        $('.ec-productRole__btn').each(function () {
-            if ($(this).find('.add-cart').length) {
-                $(this).after('<div class="ec-productRole__btn">\n' +
-                    '          <button type="button" class="ec-blockBtn--cancel contact">{{ contact_button_label }}</button>\n' +
-                    '         </div>')
-            }
-        })
+        $('#form1').append('<div class="ec-productRole__btn">\n' +
+            '          <button type="button" class="ec-blockBtn--cancel contact">{{ contact_button_label }}</button>\n' +
+            '         </div>')
         
         $('body').on('click','.ec-productRole__btn .contact', function () {
             location.href = "{{ url('contact') }}?product={{ Product.id }}"
