@@ -28,7 +28,17 @@
 
                                     {{ form_widget(form.name) }}
                                     {{ form_errors(form.name) }}
-                                    <p class="mt-1">※空欄の場合「この商品を問い合わせる」になります</p>
+                                    <p class="mt-1">※Product/detail.twig内では{{ "{{ contact_button_label }}"|raw }}と記載することで上の設定値を出力可能です。</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3"><span>ボタンの設置</span></div>
+                                <div class="col mb-2">
+
+                                    {{ form_widget(form.insert_button_flg) }}
+                                    {{ form_errors(form.insert_button_flg) }}
+                                    <p class="mt-1">※自動で設置しない場合、<strong>{{ "{{ url('contact') }}"|raw }}?product=商品ID</strong>へリンクを貼ればどの場所にでもボタンを設置できます。</p>
                                 </div>
                             </div>
                         </div>

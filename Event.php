@@ -65,7 +65,11 @@ class Event implements EventSubscriberInterface
         }
 
         $event->setParameter('contact_button_label', $label);
-        $event->addSnippet('@ProductContact4/Product/contact_button.twig');
+
+        if (!$Config || $Config->isInsertButtonFlg()) {
+            // 自動でボタンを挿入
+            $event->addSnippet('@ProductContact4/Product/contact_button.twig');
+        }
     }
 
     public function onFrontContactIndexInitialize(EventArgs $event)

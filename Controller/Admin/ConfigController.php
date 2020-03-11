@@ -3,6 +3,7 @@
 namespace Plugin\ProductContact4\Controller\Admin;
 
 use Eccube\Controller\AbstractController;
+use Plugin\ProductContact4\Entity\Config;
 use Plugin\ProductContact4\Form\Type\Admin\ConfigType;
 use Plugin\ProductContact4\Repository\ConfigRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -33,6 +34,14 @@ class ConfigController extends AbstractController
     public function index(Request $request)
     {
         $Config = $this->configRepository->get();
+
+        if (!$Config) {
+            $Config = new Config();
+            $Config->setId(1);
+            $Config->setName('この商品を問い合わせる');
+            $Config->setInsertButtonFlg(true);
+        }
+
         $form = $this->createForm(ConfigType::class, $Config);
         $form->handleRequest($request);
 
