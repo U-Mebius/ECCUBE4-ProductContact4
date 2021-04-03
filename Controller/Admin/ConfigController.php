@@ -48,7 +48,7 @@ class ConfigController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $Config = $form->getData();
             $this->entityManager->persist($Config);
-            $this->entityManager->flush($Config);
+            $this->entityManager->flush();
             $this->addSuccess('登録しました。', 'admin');
 
             return $this->redirectToRoute('product_contact4_admin_config');
