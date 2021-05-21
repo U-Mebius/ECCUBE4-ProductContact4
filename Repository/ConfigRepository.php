@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This file is part of ProductContact4
+ *
+ * Copyright(c) U-Mebius Inc. All Rights Reserved.
+ *
+ * https://umebius.com/
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Plugin\ProductContact4\Repository;
 
 use Eccube\Repository\AbstractRepository;
@@ -16,8 +27,6 @@ class ConfigRepository extends AbstractRepository
 {
     /**
      * ConfigRepository constructor.
-     *
-     * @param RegistryInterface $registry
      */
     public function __construct(RegistryInterface $registry)
     {
@@ -27,7 +36,7 @@ class ConfigRepository extends AbstractRepository
     /**
      * @param int $id
      *
-     * @return null|Config
+     * @return Config|null
      */
     public function get($id = 1)
     {

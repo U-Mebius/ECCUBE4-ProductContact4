@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This file is part of ProductContact4
+ *
+ * Copyright(c) U-Mebius Inc. All Rights Reserved.
+ *
+ * https://umebius.com/
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Plugin\ProductContact4;
 
 use Doctrine\ORM\EntityManager;
@@ -13,7 +24,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class Event implements EventSubscriberInterface
 {
-
     /**
      * @var EntityManager
      */
@@ -24,19 +34,16 @@ class Event implements EventSubscriberInterface
      */
     protected $productRepository;
 
-
     /**
      * @var ConfigRepository
      */
     protected $configRepository;
 
-
     public function __construct(
         ConfigRepository $configRepository,
         EntityManager $entityManager = null,
         ProductRepository $productRepository = null
-    )
-    {
+    ) {
         $this->configRepository = $configRepository;
         $this->entityManager = $entityManager;
         $this->productRepository = $productRepository;
@@ -53,7 +60,6 @@ class Event implements EventSubscriberInterface
              'plugin.contact.index.complete' => 'onFrontContactIndexComplete',
         ];
     }
-
 
     public function onRenderProductDetail(TemplateEvent $event)
     {
@@ -77,21 +83,19 @@ class Event implements EventSubscriberInterface
         $request = $event->getRequest();
         $builder = $event->getArgument('builder');
 
-        if ($request->query->get('product'))
-        {
-           $Product = $this->productRepository->find($request->query->get('product'));
+        if ($request->query->get('product')) {
+            $Product = $this->productRepository->find($request->query->get('product'));
 
-           if ($Product) {
-               $data = $builder->getData();
-               $data['Product'] = $Product;
-               $builder->setData($data);
-           }
+            if ($Product) {
+                $data = $builder->getData();
+                $data['Product'] = $Product;
+                $builder->setData($data);
+            }
         }
     }
 
-
-    public function onFrontContactIndexComplete(EventArgs $event) {
-
+    public function onFrontContactIndexComplete(EventArgs $event)
+    {
         $Contact = $event->getArgument('Contact');
         $data = $event->getArgument('data');
         // エンティティを更新

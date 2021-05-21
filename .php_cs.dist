@@ -1,0 +1,32 @@
+<?php
+$header = <<<EOL
+This file is part of ProductContact4
+
+Copyright(c) U-Mebius Inc. All Rights Reserved.
+
+https://umebius.com/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+EOL;
+
+$rules = [
+    '@Symfony' => true,
+    'array_syntax' => ['syntax' => 'short'],
+    'phpdoc_align' => false,
+    'phpdoc_summary' => false,
+    'phpdoc_scalar' => false,
+    'phpdoc_annotation_without_dot' => false,
+    'increment_style' => false,
+    'yoda_style' => false,
+    'header_comment' => ['header' => $header],
+];
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__)
+    ->name('*.php')
+;
+return PhpCsFixer\Config::create()
+    ->setRules($rules)
+    ->setFinder($finder)
+    ;
