@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of ProductContact4
+ * This file is part of ProductContact42
  *
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
  *
@@ -11,11 +11,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Plugin\ProductContact4;
+namespace Plugin\ProductContact42;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Eccube\Plugin\AbstractPluginManager;
-use Plugin\ProductContact4\Entity\Config;
+use Plugin\ProductContact42\Entity\Config;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class PluginManager extends AbstractPluginManager

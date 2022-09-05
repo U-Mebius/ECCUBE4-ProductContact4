@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of ProductContact4
+ * This file is part of ProductContact42
  *
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
  *
@@ -11,11 +11,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Plugin\ProductContact4\Repository;
+namespace Plugin\ProductContact42\Repository;
 
+use Doctrine\Persistence\ManagerRegistry;
 use Eccube\Repository\AbstractRepository;
-use Plugin\ProductContact4\Entity\Config;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Plugin\ProductContact42\Entity\Config;
 
 /**
  * ConfigRepository
@@ -28,7 +28,7 @@ class ConfigRepository extends AbstractRepository
     /**
      * ConfigRepository constructor.
      */
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Config::class);
     }

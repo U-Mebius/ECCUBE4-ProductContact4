@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of ProductContact4
+ * This file is part of ProductContact42
  *
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
  *
@@ -11,21 +11,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Plugin\ProductContact4;
+namespace Plugin\ProductContact42;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Eccube\Event\EccubeEvents;
 use Eccube\Event\EventArgs;
 use Eccube\Event\TemplateEvent;
 use Eccube\Repository\ProductRepository;
 use Eccube\Util\StringUtil;
-use Plugin\ProductContact4\Repository\ConfigRepository;
+use Plugin\ProductContact42\Repository\ConfigRepository;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class Event implements EventSubscriberInterface
 {
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     protected $entityManager;
 
@@ -41,8 +41,8 @@ class Event implements EventSubscriberInterface
 
     public function __construct(
         ConfigRepository $configRepository,
-        EntityManager $entityManager = null,
-        ProductRepository $productRepository = null
+        EntityManagerInterface $entityManager,
+        ProductRepository $productRepository
     ) {
         $this->configRepository = $configRepository;
         $this->entityManager = $entityManager;
@@ -63,6 +63,7 @@ class Event implements EventSubscriberInterface
 
     public function onRenderProductDetail(TemplateEvent $event)
     {
+
         $label = 'この商品を問い合わせる';
         $Config = $this->configRepository->get();
 
@@ -74,7 +75,7 @@ class Event implements EventSubscriberInterface
 
         if (!$Config || $Config->isInsertButtonFlg()) {
             // 自動でボタンを挿入
-            $event->addSnippet('@ProductContact4/Product/contact_button.twig');
+            $event->addSnippet('@ProductContact42/Product/contact_button.twig');
         }
     }
 
@@ -104,6 +105,6 @@ class Event implements EventSubscriberInterface
 
         // DB更新
         $this->entityManager->persist($Contact);
-        $this->entityManager->flush($Contact);
+        $this->entityManager->flush();
     }
 }

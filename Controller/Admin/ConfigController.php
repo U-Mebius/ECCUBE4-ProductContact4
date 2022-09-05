@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of ProductContact4
+ * This file is part of ProductContact42
  *
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
  *
@@ -11,12 +11,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Plugin\ProductContact4\Controller\Admin;
+namespace Plugin\ProductContact42\Controller\Admin;
 
 use Eccube\Controller\AbstractController;
-use Plugin\ProductContact4\Entity\Config;
-use Plugin\ProductContact4\Form\Type\Admin\ConfigType;
-use Plugin\ProductContact4\Repository\ConfigRepository;
+use Plugin\ProductContact42\Entity\Config;
+use Plugin\ProductContact42\Form\Type\Admin\ConfigType;
+use Plugin\ProductContact42\Repository\ConfigRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,8 +37,8 @@ class ConfigController extends AbstractController
     }
 
     /**
-     * @Route("/%eccube_admin_route%/product_contact4/config", name="product_contact4_admin_config")
-     * @Template("@ProductContact4/admin/config.twig")
+     * @Route("/%eccube_admin_route%/product_contact4/config", name="product_contact42_admin_config")
+     * @Template("@ProductContact42/admin/config.twig")
      */
     public function index(Request $request)
     {
@@ -60,7 +60,7 @@ class ConfigController extends AbstractController
             $this->entityManager->flush();
             $this->addSuccess('admin.common.save_complete', 'admin');
 
-            return $this->redirectToRoute('product_contact4_admin_config');
+            return $this->redirectToRoute('product_contact42_admin_config');
         }
 
         return [

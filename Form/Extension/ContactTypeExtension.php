@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of ProductContact4
+ * This file is part of ProductContact42
  *
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
  *
@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Plugin\ProductContact4\Form\Extension;
+namespace Plugin\ProductContact42\Form\Extension;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Eccube\Entity\Product;
@@ -42,7 +42,7 @@ class ContactTypeExtension extends AbstractTypeExtension
             'required' => false,
             'eccube_form_options' => [
                 'auto_render' => true,
-                'form_theme' => '@ProductContact4/Form/product_contact_layout.twig',
+                'form_theme' => '@ProductContact42/Form/product_contact_layout.twig',
             ],
             ])
         ->addModelTransformer(new EntityToIdTransformer($this->entityManager, Product::class)));
@@ -71,7 +71,7 @@ class ContactTypeExtension extends AbstractTypeExtension
      *
      * @return string
      */
-    public function getExtendedTypes(): iterable
+    public static function getExtendedTypes(): iterable
     {
         return [ContactType::class];
     }

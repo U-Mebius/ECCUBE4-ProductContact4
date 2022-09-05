@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of ProductContact4
+ * This file is part of ProductContact42
  *
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
  *
@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Plugin\ProductContact4\Entity;
+namespace Plugin\ProductContact42\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Config
  *
  * @ORM\Table(name="plg_product_contact4_config")
- * @ORM\Entity(repositoryClass="Plugin\ProductContact4\Repository\ConfigRepository")
+ * @ORM\Entity(repositoryClass="Plugin\ProductContact42\Repository\ConfigRepository")
  */
 class Config
 {

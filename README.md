@@ -4,7 +4,7 @@ IDEでEC-CUBEのapp/templte/{template_code}/Mail内テンプレートファイ�
 
 ### テキストメール
 テキストのタブで商品情報を追加したい場所に下記コードを追加してください。
-`{{ include('@ProductContact4/Mail/product.twig', ignore_missing = true) }}`
+`{{ include('@ProductContact42/Mail/product.twig', ignore_missing = true) }}`
 
 追加した場所に次のような要素が挿入されます。
 ```
@@ -13,7 +13,7 @@ IDEでEC-CUBEのapp/templte/{template_code}/Mail内テンプレートファイ�
 
 ### HTMLメール
 HTMLのタブで商品情報を追加したい場所に下記コードを追加してください。  
-`{{ include('@ProductContact4/Mail/product_html.twig', ignore_missing = true) }}`
+`{{ include('@ProductContact42/Mail/product_html.twig', ignore_missing = true) }}`
 
 追加した場所に次のような要素が挿入されます。
 ```
