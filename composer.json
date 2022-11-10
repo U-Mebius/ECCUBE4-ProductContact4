@@ -1,10 +1,10 @@
 {
   "name": "ec-cube/productcontact42",
-  "version": "1.0.4",
+  "version": "1.1.1",
   "description": "商品問い合わせ for EC-CUBE4(4.2系)",
   "type": "eccube-plugin",
   "require": {
-    "ec-cube/plugin-installer": "~0.0.7"
+    "ec-cube/plugin-installer": "~0.0.6 || ^2.0"
   },
   "extra": {
     "code": "ProductContact42"
